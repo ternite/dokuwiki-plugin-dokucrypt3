@@ -1,0 +1,7 @@
+base   dokucrypt3
+author By Scott Moser, maintained by Thomas Schäfer, previously maintained by Sherri Wheeler (dokucrypt2)
+email  thomas@hilbershome.de
+date   2025-10-15
+name   DokuCrypt 3
+desc   Client side cryptography enabling encrypting blocks of text within a wiki page.
+url    https://www.dokuwiki.org/plugin:dokucrypt3

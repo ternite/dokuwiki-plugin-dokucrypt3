@@ -1,0 +1,99 @@
+====== dokucrypt3 Plugin ======
+
+---- plugin ----
+description: A plugin to support client side cryptography
+author     : Scott Moser (smoser@brickies.net), maintained by Thomas Schäfer (thomas@hilbershome.de)
+type       : admin
+lastupdate : 2025-10-15
+compatible : Hogfather, Igor, Jack Jackrum, Kaos, Librarian
+depends    : 
+conflicts  : aceeditor, fastwiki
+similar    : dokucrypt, dokucrypt2
+tags       : encryption, password
+
+downloadurl: https://github.com/ternite/dokucrypt3/archive/main.zip
+bugtracker : https://github.com/ternite/dokucrypt3/issues
+sourcerepo : https://github.com/ternite/dokucrypt3
+donationurl: 
+
+----
+
+This replaces the: [[plugin:dokucrypt2|Original DokuCrypt2 Plugin]].
+
+
+===== Installation =====
+
+Search and install the plugin using the [[plugin:extension|Extension Manager]]. Refer to [[:Plugins]] on how to install plugins manually.
+
+Note: Plugin is now maintained by Thomas Schäfer.
+ --- [[user>thomas-schaefer-nh|Thomas Schäfer]] //2025-10-15 15:06//
+
+
+====== About ======
+
+dokucrypt is a client side (javascript) cryptography plugin.  This plugins allows a user to store and access sensitive data in a dokuwiki.  All sensitive data is encrypted before it is submitted and decrypted on the clients machine.  A users' sensitive data will only be accessible when viewed with a javascript enabled browser and the proper pass phrase. It will never be transmitted or stored in plain text, and you will avoid having passwords and sensitive data stored in plain text on the server.
+
+The Javascrypt (http://www.fourmilab.ch/javascrypt/) library is used for encryption and decryption to provide 256 Bit AES encryption.
+
+:!: **Warning:** This plugin should not replace a password manager or peer reviewed cryptography tools for high-priority use. Do not store mission critical type data with this plugin - I cannot be sure that the info is not cached by DokuWiki or the web browser.  --- [[user>sherri|sherri]] //2020-10-14 19:55//
+
+:!: **This plugin is provided without warranty or guarantee of any kind. Use at your own discretion.** --- [[user>thomas-schaefer-nh|Thomas Schäfer]] //2025-10-15 15:06//
+
+===== Releases =====
+
+  * 2025-10-15: Release of dokucrypt3, which has originally been an internal fork of dokucrypt2 with massive changes to the way encryption is handled. The resulting pull request would not be merged into the base repository (due to maintenance effort). So a new github repository `dokucrypt3` was created based on dokucrypt2 and the new encryption engine.
+
+===== Usage =====
+
+==== Entering Encrypted Data ====
+
+In order to encrypt some sensitive data, the user needs to add text like the following 
+
+  Hi world.  I have a secret.  Can you read it?
+  <SECRET>I like ice cream.</SECRET>
+
+When the user hits 'Save' (or a draft is attempted to be saved) a prompt will open, asking the user to enter a pass phrase key for the encryption.  Once supplied, the encryption will be done in the browser and the encrypted text submitted to the server.
+
+=== Special Characters ===
+
+The less-than (<) and greater-than(>) symbols, if included in the enclosed text to encrypt, will break the decryption and cause some content to not be shown. To enter these characters in your content to be encrypted, use their HTML entity equivalents:
+
+  * < = Use: ''&lt;''
+  * > = Use: ''&gt;''
+
+==== Viewing Encrypted Data ====
+
+When the page is viewed, the user will see the encrypted text and a link 'Decrypt Encrypted Text' will appear which will prompt the user for a password and decrypt the text (see the example below).
+
+The encrypted text is compatible with javascrypt decryption (http://www.fourmilab.ch/javascrypt/jscrypt.html).
+
+
+==== Editing Encrypted Data ====
+
+To edit the encrypted data, the user needs to Edit the wiki page.  When first loaded, encrypted text will appear encrypted, surrounded by %%<ENCRYPTED>%% and %%</ENCRYPTED>%% tags.  To edit this text, the user needs to press the 'DecryptSecret' button between 'Save' and 'Preview', and supply the correct pass phrase.  The encrypted text will be decrypted to the 'SECRET' form showed above, and the use can edit in plaintext.  Submits or drafts will be encrypted before submission with the same pass phrase supplied.
+
+==== Settings ====
+
+This plugin includes configuration settings.
+
+  * ''copytoclipboard'' - If set to true, the plugin tries to copy the decrypted value to the clipboard.
+  * ''hidepasswordoncopytoclipboard'' - If set to true, the decrypted value will not be shown after being copied to the clipboard (see option 'copytoclipboard').
+
+===== Known Issues =====
+
+  * May not work if the website including plugin control text is being translated into another language.
+  * Conflicts with Encrypted Passwords plugin (both plugins attempt to parse the <encrypt></encrypt> tag).  --- [[user>Fumigator2|Fumigator2]] //2024-03-12 02:41//
+
+===== Feature Requests =====
+
+Please use the [[https://github.com/syntaxseed/dokucrypt3/issues|GitHub Issues page]].
+
+
+===== Bugs - Please Submit Bugs On GitHub =====
+
+Please use the [[https://github.com/syntaxseed/dokucrypt3/issues|Issues page on GitHub]].
+
+
+==== Patches For Older Versions of DokuWiki ====
+
+If you're running an older version of Dokuwiki (Versions 2017-02-19 "Frusterick Manners" and older.), you might want to try the approach described in [[https://github.com/syntaxseed/dokucrypt2/blob/master/OLDER_VERSIONS.md|Documentation For Old-Version Patches in dokucrypt2]].
