@@ -1,6 +1,6 @@
 <?php
 /**
- * German language file for config of dokucrypt2 plugin
+ * German language file for config of dokucrypt3 plugin
  *
  */
 

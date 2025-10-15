@@ -1,6 +1,6 @@
 <?php
 /**
- * Options for the dokucrypt2 plugin
+ * Options for the dokucrypt3 plugin
  */
 
 $meta['copytoclipboard'] = array('onoff');

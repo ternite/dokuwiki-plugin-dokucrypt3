@@ -281,13 +281,13 @@ function toggleCryptDiv(elemid,lock,ctext) {
         //store the key that was used
         setKeyForLock(lock,given_key);
           
-        if (JSINFO["plugin_dokucrypt2_CONFIG_copytoclipboard"] == 1) {
+        if (JSINFO["plugin_dokucrypt3_CONFIG_copytoclipboard"] == 1) {
           //put it into the clipboard
           copyToClipboard(ptext).then(() => {
-            if (JSINFO['plugin_dokucrypt2_CONFIG_hidepasswordoncopytoclipboard']) {
-              elem.textContent = "{" + JSINFO['plugin_dokucrypt2_TEXT_copied_to_clipboard'] + "}";
+            if (JSINFO['plugin_dokucrypt3_CONFIG_hidepasswordoncopytoclipboard']) {
+              elem.textContent = "{" + JSINFO['plugin_dokucrypt3_TEXT_copied_to_clipboard'] + "}";
             } else {
-              elem.textContent += " {" + JSINFO['plugin_dokucrypt2_TEXT_copied_to_clipboard'] + "}";
+              elem.textContent += " {" + JSINFO['plugin_dokucrypt3_TEXT_copied_to_clipboard'] + "}";
             };
             console.log('Encrypted value has been copied to the clipboard.');
           }).catch(() => {
@@ -362,7 +362,7 @@ window.pw_prompt = function(options) {
 
     if (promptElem == null) {
         promptElem = document.createElement("div");
-        promptElem.className = "dokucrypt2pw_prompt";
+        promptElem.className = "dokucrypt3pw_prompt";
         
         label = document.createElement("label");
         label.textContent = lm;

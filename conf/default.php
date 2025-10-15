@@ -1,6 +1,6 @@
 <?php
 /**
- * Default settings for the dokucrypt2 plugin
+ * Default settings for the dokucrypt3 plugin
  */
 
 $conf['copytoclipboard']               = 0;

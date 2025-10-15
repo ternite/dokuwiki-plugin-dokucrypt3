@@ -1,4 +1,4 @@
-.dokucrypt2pw_prompt {
+.dokucrypt3pw_prompt {
   position:fixed;
   left: 50%;
   top:50%;
@@ -9,10 +9,10 @@
   background-color:white;
   z-index: 999;
 }
-.dokucrypt2pw_prompt label {
+.dokucrypt3pw_prompt label {
   display:block; 
   margin-bottom:5px;
 }
-.dokucrypt2pw_prompt input {
+.dokucrypt3pw_prompt input {
   margin-bottom:10px;
 }

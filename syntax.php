@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin DokuCrypt2: Enables client side encryption
+ * Plugin dokucrypt3: Enables client side encryption
  *
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author     Scott Moser <smoser@brickies.net>, Maintainer Sherri W. ( contact me at syntaxseed.com)
@@ -20,7 +20,7 @@ require_once(DOKU_PLUGIN.'syntax.php');
  * All DokuWiki plugins to extend the parser/rendering mechanism
  * need to inherit from this class
  */
-class syntax_plugin_dokucrypt2 extends DokuWiki_Syntax_Plugin
+class syntax_plugin_dokucrypt3 extends DokuWiki_Syntax_Plugin
 {
     public $curNum=0;
     public $curLock=0;
@@ -35,7 +35,7 @@ class syntax_plugin_dokucrypt2 extends DokuWiki_Syntax_Plugin
             'date'   => '2024-05-01',
             'name'   => 'Client Side Encryption Plugin',
             'desc'   => 'Client side cryptography enabling encrypting blocks of text within a wiki page.',
-            'url'    => 'https://www.dokuwiki.org/plugin:dokucrypt2',
+            'url'    => 'https://www.dokuwiki.org/plugin:dokucrypt3',
         );
     }
 
@@ -56,12 +56,12 @@ class syntax_plugin_dokucrypt2 extends DokuWiki_Syntax_Plugin
         $this->Lexer->addEntryPattern(
             '<ENCRYPTED.*?>(?=.*?</ENCRYPTED>)',
             $mode,
-            'plugin_dokucrypt2'
+            'plugin_dokucrypt3'
         );
     }
     public function postConnect()
     {
-        $this->Lexer->addExitPattern('</ENCRYPTED>', 'plugin_dokucrypt2');
+        $this->Lexer->addExitPattern('</ENCRYPTED>', 'plugin_dokucrypt3');
     }
 
     /**
@@ -113,15 +113,15 @@ class syntax_plugin_dokucrypt2 extends DokuWiki_Syntax_Plugin
                 $curid = "crypto_decrypted_" . $this->curNum;
 
                 $renderer->doc.="<a id='$curid" . "_atag' " .
-                  "class='wikilink1 dokucrypt2dec JSnocheck' " .
+                  "class='wikilink1 dokucrypt3dec JSnocheck' " .
                   "href=\"javascript:toggleCryptDiv(" .
                   "'$curid','" . $this->curLock["lock"] . "','" .
                   htmlspecialchars(str_replace("\n", "\\n", $match)) . "');\">" .
                   "Decrypt Encrypted Text</a>" .
-                  "&nbsp;&nbsp;[<a class='wikilink1 dokucrypt2toggle JSnocheck' " .
+                  "&nbsp;&nbsp;[<a class='wikilink1 dokucrypt3toggle JSnocheck' " .
                   "href=\"javascript:toggleElemVisibility('$curid');\">" .
                   "Toggle Visible</a>]\n" .
-                  "<PRE id='$curid' class='dokucrypt2pre' style=\"" .
+                  "<PRE id='$curid' class='dokucrypt3pre' style=\"" .
                      (($this->curLock["collapsed"] == 1) ?
                         "visibility:hidden;position:absolute;white-space:pre-wrap;word-wrap: break-word;" :
                         "visibility:visible;position:relative;white-space:pre-wrap;word-wrap: break-word;") .

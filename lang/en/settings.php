@@ -1,6 +1,6 @@
 <?php
 /**
- * English language file for config of dokucrypt2 plugin
+ * English language file for config of dokucrypt3 plugin
  */
 
 $lang['copytoclipboard'] = "If set to true, the plugin tries to copy the decrypted value to the clipboard.";

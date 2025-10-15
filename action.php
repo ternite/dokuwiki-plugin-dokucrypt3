@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin DokuCrypt2: Enables client side encryption
+ * Plugin dokucrypt3: Enables client side encryption
  *
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author     Scott Moser <smoser@brickies.net>, Maintainer Sherri W. ( contact me at syntaxseed.com)
@@ -14,7 +14,7 @@ if (!defined('DOKU_PLUGIN')) {
 }
 require_once(DOKU_PLUGIN.'action.php');
 
-class action_plugin_dokucrypt2 extends DokuWiki_Action_Plugin
+class action_plugin_dokucrypt3 extends DokuWiki_Action_Plugin
 {
     public function register($controller)
     {
@@ -25,7 +25,7 @@ class action_plugin_dokucrypt2 extends DokuWiki_Action_Plugin
     public function c_hookjs(&$event, $param) {
         $event->data["script"][] = array(
             "type" => "text/javascript",
-            "src" => DOKU_BASE."lib/plugins/dokucrypt2/init.js",
+            "src" => DOKU_BASE."lib/plugins/dokucrypt3/init.js",
             "defer" => "defer",
             "_data" => ""
         );
@@ -34,8 +34,8 @@ class action_plugin_dokucrypt2 extends DokuWiki_Action_Plugin
     public function _addconfig(&$event, $param)
     {
         global $JSINFO;
-        $JSINFO['plugin_dokucrypt2_CONFIG_copytoclipboard'] = $this->getConf('copytoclipboard');
-        $JSINFO['plugin_dokucrypt2_CONFIG_hidepasswordoncopytoclipboard'] = $this->getConf('hidepasswordoncopytoclipboard');
-        $JSINFO['plugin_dokucrypt2_TEXT_copied_to_clipboard'] = $this->getLang('copied_to_clipboard');
+        $JSINFO['plugin_dokucrypt3_CONFIG_copytoclipboard'] = $this->getConf('copytoclipboard');
+        $JSINFO['plugin_dokucrypt3_CONFIG_hidepasswordoncopytoclipboard'] = $this->getConf('hidepasswordoncopytoclipboard');
+        $JSINFO['plugin_dokucrypt3_TEXT_copied_to_clipboard'] = $this->getLang('copied_to_clipboard');
 	}
 }

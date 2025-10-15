@@ -1,4 +1,4 @@
-// This file contains a flat high-level programming interface for dokucrypt2.
+// This file contains a flat high-level programming interface for dokucrypt3.
 // This interface is specific for the module's syntax. All functions defined
 // here work synchronously.
 
