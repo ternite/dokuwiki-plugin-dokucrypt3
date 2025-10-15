@@ -399,6 +399,11 @@ window.pw_prompt = function(options) {
 	
     label.textContent = lm;
     input.value = "";
+    input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+            submit_event();
+        }
+    });
     submit_button.textContent = bm;
     submit_button.addEventListener("click", submit_event, false);
     cancel_button.textContent = cm;
