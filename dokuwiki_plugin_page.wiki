@@ -11,9 +11,9 @@ conflicts  : aceeditor, fastwiki
 similar    : dokucrypt, dokucrypt2
 tags       : encryption, password
 
-downloadurl: https://github.com/ternite/dokucrypt3/archive/main.zip
-bugtracker : https://github.com/ternite/dokucrypt3/issues
-sourcerepo : https://github.com/ternite/dokucrypt3
+downloadurl: https://github.com/ternite/dokuwiki-plugin-dokucrypt3/archive/main.zip
+bugtracker : https://github.com/ternite/dokuwiki-plugin-dokucrypt3/issues
+sourcerepo : https://github.com/ternite/dokuwiki-plugin-dokucrypt3
 donationurl: 
 
 ----
