@@ -158,7 +158,7 @@ function askForEncryptPasswordWithVerification() {
     
     do_encryption = function(key2) {
       if (key != key2) {
-        alert("Passwords do not match!");
+        alert("Die Passwörter stimmen nicht überein!");
         return;
       }
       
@@ -174,13 +174,13 @@ function askForEncryptPasswordWithVerification() {
 		currentSubmitter.click();
       } else {
         setKeyForLock(lock,null);
-        alert("The text could not be encrypted!");
+        alert("Der Text konnte nicht verschlüsselt werden!");
 		currentSubmitter = null;
       }
     };
 	
     pw_prompt({
-      lm:"Repeat passphrase key for lock " + lock,
+      lm:"Bitte Kennwort erneut eingeben", // "Enter passphrase for lock " + lock);
       elem:wikitext,
       submit_callback:do_encryption
     });
@@ -188,7 +188,7 @@ function askForEncryptPasswordWithVerification() {
   };
   
   pw_prompt({
-    lm:"Enter passphrase key for lock " + lock,
+    lm:"Bitte Kennwort eingeben", // "Enter passphrase for lock " + lock);
     elem:wikitext,
     submit_callback:do_verification
   });
@@ -211,12 +211,12 @@ function askForDecryptPassword() {
       hiddentext.value=decrypted_text;
     } else {
       setKeyForLock(lock,null);
-      alert("The text could not be decrypted!");
+      alert("Der Text konnte nicht entschlüsselt werden!");
     }
   };
   
   pw_prompt({
-    lm:"Enter passphrase key for lock " + lock,
+    lm:"Bitte Kennwort eingeben", // "Enter passphrase for lock " + lock);
     elem:wikitext,
     submit_callback:do_decryption
   });
@@ -248,7 +248,7 @@ function toggleElemVisibility(elemid) {
 */
 function toggleCryptDiv(elemid,lock,ctext) {
    var elem=null, atab=null, ptext="";
-   var ctStr="Decrypt Encrypted Text", ptStr="Hide Plaintext";
+   var ctStr="anzeigen", ptStr="verstecken";
    elem=document.getElementById(elemid);
    atag=document.getElementById(elemid + "_atag");
    if(elem===null || atag===null) {
@@ -268,7 +268,7 @@ function toggleCryptDiv(elemid,lock,ctext) {
       do_decryption = function(given_key) {
 		//try the decryption
         if(!(ptext=decryptTextString(ctext,given_key))) {
-          alert("failed to decrypt with provided key");
+          alert("Kein passendes Kennwort eingegeben");
           return;
         }
 
@@ -289,9 +289,9 @@ function toggleCryptDiv(elemid,lock,ctext) {
             } else {
               elem.textContent += " {" + JSINFO['plugin_dokucrypt3_TEXT_copied_to_clipboard'] + "}";
             };
-            console.log('Encrypted value has been copied to the clipboard.');
+            console.log('Das Passwort wurde in die Zwischenablage kopiert.');
           }).catch(() => {
-            console.log('Encrypted value could not be copied to the clipboard.');
+            console.log('Das Passwort konnte nicht in die Zwischenablage kopiert.');
           });
         }
       };
@@ -300,7 +300,7 @@ function toggleCryptDiv(elemid,lock,ctext) {
       var key = getKeyForLock(lock);
       if(key===false || key===undefined || key === null || !decryptTextString(ctext,key)) {
 		pw_prompt({
-          lm:"Enter passphrase for lock " + lock, 
+          lm:"Bitte Kennwort eingeben", // "Enter passphrase for lock " + lock);
           lock:lock,
           elem:elem,
           submit_callback:do_decryption
@@ -350,9 +350,9 @@ var enter_event = null;
 var async_getKey_active = false; // tracks whether the user is currently being asked for a key
   
 window.pw_prompt = function(options) {
-    var lm = options.lm || "Password:",
-        bm = options.bm || "Submit",
-        cm = options.cm || "Cancel",
+    var lm = options.lm || "Passwort:",
+        bm = options.bm || "OK",
+        cm = options.cm || "Abbrechen",
         elem = options.elem || document.body,
 		submit_callback = options.submit_callback;
 
