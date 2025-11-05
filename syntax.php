@@ -117,7 +117,7 @@ class syntax_plugin_dokucrypt3 extends DokuWiki_Syntax_Plugin
                   "href=\"javascript:toggleCryptDiv(" .
                   "'$curid','" . $this->curLock["lock"] . "','" .
                   htmlspecialchars(str_replace("\n", "\\n", $match)) . "');\">" .
-                  "anzeigen</a>" .
+                  "entschlüsseln</a>" .
                   //"&nbsp;&nbsp;[<a class='wikilink1 dokucrypt3toggle JSnocheck' " .
                   //"href=\"javascript:toggleElemVisibility('$curid');\">" .
                   //"Toggle Visible</a>]\n" .

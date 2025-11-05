@@ -248,7 +248,7 @@ function toggleElemVisibility(elemid) {
 */
 function toggleCryptDiv(elemid,lock,ctext) {
    var elem=null, atab=null, ptext="";
-   var ctStr="anzeigen", ptStr="verstecken";
+   var ctStr="entschlüsseln", ptStr="verstecken";
    elem=document.getElementById(elemid);
    atag=document.getElementById(elemid + "_atag");
    if(elem===null || atag===null) {
