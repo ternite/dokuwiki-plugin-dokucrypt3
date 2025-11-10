@@ -7,8 +7,8 @@ type       : admin
 lastupdate : 2025-10-15
 compatible : Hogfather, Igor, Jack Jackrum, Kaos, Librarian
 depends    : 
-conflicts  : aceeditor, fastwiki
-similar    : dokucrypt, dokucrypt3
+conflicts  : aceeditor, fastwiki,
+similar    : dokucrypt, dokucrypt2, encryptedpasswords
 tags       : encryption, password
 
 downloadurl: https://github.com/ternite/dokuwiki-plugin-dokucrypt3/archive/main.zip
@@ -18,7 +18,7 @@ donationurl:
 
 ----
 
-This replaces the: [[plugin:dokucrypt3|Original dokucrypt3 Plugin]].
+This replaces the: [[plugin:dokucrypt2|Original DokuCrypt2 Plugin]].
 
 
 ===== Installation =====
@@ -41,7 +41,7 @@ The Javascrypt (http://www.fourmilab.ch/javascrypt/) library is used for encrypt
 
 ===== Releases =====
 
-  * 2025-10-15: Release of dokucrypt3, which has originally been an internal fork of dokucrypt3 with massive changes to the way encryption is handled. The resulting pull request would not be merged into the base repository (due to maintenance effort). So a new github repository `dokucrypt3` was created based on dokucrypt3 and the new encryption engine.
+  * 2025-10-15: Release of dokucrypt3, which has originally been an internal fork of dokucrypt2 with massive changes to the way encryption is handled. The resulting pull request would not be merged into the base repository (due to maintenance effort). So a new github repository `dokucrypt3` was created based on dokucrypt2 and the new encryption engine.
 
 ===== Usage =====
 
@@ -82,18 +82,14 @@ This plugin includes configuration settings.
 ===== Known Issues =====
 
   * May not work if the website including plugin control text is being translated into another language.
-  * Conflicts with Encrypted Passwords plugin (both plugins attempt to parse the <encrypt></encrypt> tag).  --- [[user>Fumigator2|Fumigator2]] //2024-03-12 02:41//
+  * Conflicts with [[https://www.dokuwiki.org/plugin:encryptedpasswords|Encrypted Passwords]] plugin (both plugins attempt to parse the <encrypted></encrypted> tag).  --- [[user>Fumigator2|Fumigator2]] //2024-03-12 02:41//
 
 ===== Feature Requests =====
 
-Please use the [[https://github.com/syntaxseed/dokucrypt3/issues|GitHub Issues page]].
+Please use the [[https://github.com/ternite/dokuwiki-plugin-dokucrypt3/issues|GitHub Issues page]].
 
 
 ===== Bugs - Please Submit Bugs On GitHub =====
 
-Please use the [[https://github.com/syntaxseed/dokucrypt3/issues|Issues page on GitHub]].
+Please use the [[https://github.com/ternite/dokuwiki-plugin-dokucrypt3/issues|Issues page on GitHub]].
 
-
-==== Patches For Older Versions of DokuWiki ====
-
-If you're running an older version of Dokuwiki (Versions 2017-02-19 "Frusterick Manners" and older.), you might want to try the approach described in [[https://github.com/syntaxseed/dokucrypt3/blob/master/OLDER_VERSIONS.md|Documentation For Old-Version Patches in dokucrypt3]].
